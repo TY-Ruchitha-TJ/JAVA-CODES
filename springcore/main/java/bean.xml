@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    
+   <!--  <bean id="hello" class="com.tyss.spring.bean.Hello" init-method="init" destroy-method="destroycde">
+    
+    for constructor injection
+     <constructor-arg name="id" value="101"></constructor-arg>
+      <constructor-arg name="name" value="ruchitha"></constructor-arg>
+      
+      for setter methods injection
+      <property name="id" value="1234"></property>
+        <property name="name" value="rachana"></property>
+    </bean> -->
+    
+     <bean id="address" class="com.tyss.core.EmployeeAddressInfo" >
+    
+    <!-- for constructor injection -->
+      <constructor-arg name="flatNo" value="344"></constructor-arg>
+      <constructor-arg name="address" value="jp nagar"></constructor-arg> 
+       <constructor-arg name="pincode" value="571253"></constructor-arg>  
+       
+         <!-- for setter methods injection -->
+     <!--  <property name="flatNo" value="233"></property>
+        <property name="address" value="kathriguppe"></property>
+         <property name="pincode" value="235721"></property>
+        -->
+       
+        
+    </bean>
+    
+      <bean id="primary" class="com.tyss.core.EmployeePrimaryInfo" autowire="byName">
+    
+    <!-- for constructor injection -->
+       <constructor-arg name="eid" value="101"></constructor-arg>
+      <constructor-arg name="name" value="ramya"></constructor-arg> 
+       <constructor-arg name="address" ref="address"></constructor-arg>  
+       
+            <!-- for setter methods injection -->
+     <!--  <property name="eid" value="107"></property>
+        <property name="name" value="khushi"></property> -->
+        <!--  <property name="address" ref="address"></property> -->
+       
+       
+       
+        
+    </bean>
+    
+    <bean id="cat" class="com.tyss.spring.bean.Cat"></bean>
+    <bean id="Lion" class="com.tyss.spring.bean.Lion"></bean>
+    
+    <bean id="animals"  class="com.tyss.spring.bean.Pet" scope="prototype">
+    
+     <!-- for constructor injection -->
+     <constructor-arg name="name" value="LionKing"></constructor-arg>
+      <constructor-arg name="animal" ref="Lion"></constructor-arg>  
+       
+    
+    
+    
+    </bean>
+   
+  
+</beans>
